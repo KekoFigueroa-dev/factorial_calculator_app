@@ -1,15 +1,15 @@
 # Factorial Calculator App
-# This program will calculate factorials in two different ways and display the results
+# A mathematical computation tool that demonstrates different factorial calculation methods
 
-# TODO: Import required library for factorial calculation
+# Import math module for built-in factorial function
 import math
-# TODO: Display welcome message to the user
+
+# Initialize application with welcome message
 print("Welcome to My Factorial Calculator app!")
 print("This app will use 2 algorithms to compute the factorial value of a given integer")
 print("")
-# TODO: Get user input
-# - Get an integer number from the user to calculate its factorial + input validation
 
+# Input validation loop: Ensures valid positive integer within safe computational limits
 while True:
     try:
         user_number = int(input("What number would you like to compute the factorial of: "))
@@ -17,44 +17,43 @@ while True:
             print("Please enter a positive number")
             continue
         if user_number >= 900:
-            print("Number is too large!  Please enter a number below 900 to prevent stack overflow")
+            print("Number is too large! Please enter a number below 900 to prevent stack overflow")
             continue
         break
     except ValueError:
         print("Please enter a valid integer")
 
-
-# TODO: Display mathematical relationship
-# - Show the factorial equation (e.g., 5! = 1*2*3*4*5)
-# - Use end="" parameter to format output on same line
-# - Use a loop to display the multiplication sequence
+# Display factorial mathematical notation and relationship
 print(f"{user_number}! = ", end="")
 for i in range(1, user_number):
     print(str(i), end="*")
 print(str(user_number))
 
-# TODO: Calculate factorial using math library
-# - Use math.factorial() function
-# - Display the result
+# Calculate factorial using Python's math library implementation
 mathfact = math.factorial(user_number)
 print("\nHere is the result from the math library: ")
 print(f"The factorial of {user_number} is {mathfact}!")
 
-# TODO: Calculate factorial using custom algorithm (Recursion)
-# - Display the result
+# Recursive factorial implementation
 def my_factorial(n):
+    """
+    Calculate factorial using recursive method
+    Args:
+        n (int): Positive integer to calculate factorial
+    Returns:
+        int: Factorial result
+    """
     if n <= 1:
         return 1
     else:
         return n * my_factorial(n-1)
 
+# Execute recursive factorial calculation and display results
 myfact = my_factorial(user_number)
-
 print("\nHere is the result from my own recursive algorithm: ")
 print(f"The factorial of {user_number} is {myfact}!")
 
-# TODO: Display summary
-# - Show final confirmation that both calculations match
+# Display calculation verification and exit message
 print("Both calculations Match!!")
 print("\n")
 print("Thank you for testing My Factorial Calculator app. Goodbye!")
